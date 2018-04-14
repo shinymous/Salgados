@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+ xmlns:h="http://java.sun.com/jsf/html"
+ xmlns:f="http://java.sun.com/jsf/core"
+ xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+ xmlns:p="http://primefaces.org/ui"
+ xmlns:pm="http://primefaces.org/mobile">
+
+<title>Cheiro de Salgado | Home</title>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+
+	<!-- CSS  -->
+	<link href="css/style.css" rel="stylesheet" media="screen" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+	
+</head>
+	<h:body>
+	<!-- Modal Trigger -->
+  <a class="modal-trigger" href="#modal1"><h:commandButton  styleClass="btn_perfil center" value="Alterar foto"></h:commandButton></a>
+	
+	<img class="responsive-img z-depth-4" src="#{request.contextPath}/img/fotos/#{controladorAdmin.produto.caminhoImg}" />
+	
+	<!-- Modal -->
+  <div class ="row">
+		<div id="modal1" class="modal">
+			<div class="modal-content">
+				<h5 class="center light">Editar Foto.</h5>
+				<br/>
+				<h6 class="center light">Importante, o arquivo deve conter no máximo <b>2mb</b> e deve estar nos formatos <b>png, jpg ou jpeg.</b></h6>
+				<br/>
+				
+								
+				<h:form id="form" enctype="multipart/form-data">
+				
+					<div class="col s12 m12 center">
+				
+       					<h:inputFile id="arquivo" value="#{controladorAdmin.arquivo}" />
+       					<br/>
+       					<br/>
+  						<h:commandButton  value="Alterar" action="#{controladorAdmin.uploadArquivo}"/>
+ 						
+					</div>
+		
+    			</h:form>
+    				
+			</div>
+			<div class="modal-footer">
+				<div class="row">
+					<div class="col s12">
+						<h:form>
+							<h:commandButton type="submit" styleClass="btn_mini left" value="Fechar"></h:commandButton>
+						</h:form>
+					</div>
+					<div class="col s12 m12">
+						<br/>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	
+	<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+<input type="hidden" name="cmd" value="_cart"></input>
+<input type="hidden" name="business" value="andrei-a-c-s@hotmail.com"></input>
+<input type="hidden" name="lc" value="BR"></input>
+<input type="hidden" name="item_name" value="Bolinha de Queijo"></input>
+<input type="hidden" name="amount" value="25.00"></input>
+<input type="hidden" name="currency_code" value="BRL"></input>
+<input type="hidden" name="button_subtype" value="products"></input>
+<input type="hidden" name="no_note" value="0"></input>
+<input type="hidden" name="tax_rate" value="0.000"></input>
+<input type="hidden" name="shipping" value="0.00"></input>
+<input type="hidden" name="add" value="1"></input>
+<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest"></input>
+<input type="image" src="https://www.paypalobjects.com/pt_BR/i/btn/btn_cart_LG.gif" border="0" name="submit" alt="PayPal - A maneira fácil e segura de enviar pagamentos online!"></input>
+<img alt="" border="0" src="https://www.paypalobjects.com/pt_BR/i/scr/pixel.gif" width="1" height="1"></img>
+</form>
+
+	<!--  SCRIPTS-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+	<script>
+		$(document).ready(function() {
+			// the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+			$('.modal').modal();
+		});
+	</script>
+	</h:body>
+</html>

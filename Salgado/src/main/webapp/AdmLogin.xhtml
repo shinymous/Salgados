@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:x="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pm="http://primefaces.org/mobile">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Seja Bem Vindo!</title>
+</head>
+<body>
+	<h:form>
+		<label>Login</label>
+		<h:inputText value="#{loginController.login}"></h:inputText>
+		<br />
+		<br />
+		<label>Senha</label>
+		<h:inputSecret value="#{loginController.senha}"></h:inputSecret>
+		<br />
+		<br />
+		<h:commandButton action="#{loginController.logar()}" value="Logar"></h:commandButton>
+	</h:form>
+</body>
+</html>
